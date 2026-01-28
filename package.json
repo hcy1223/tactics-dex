@@ -27,6 +27,7 @@
   "devDependencies": {
     "@vitest/coverage-v8": "^4.0.18",
     "@vue/test-utils": "^2.4.6",
+    "naive-ui": "^2.43.2",
     "vitest": "^4.0.18"
   }
 }

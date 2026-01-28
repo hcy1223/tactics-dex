@@ -6,18 +6,18 @@ This document outlines the guidelines and commands for agentic coding agents ope
 
 *   **Framework:** Nuxt.js (Vue 3, Vite, TypeScript)
 *   **Language:** JavaScript, TypeScript, Vue.js Single File Components (SFCs)
-*   **Package Manager:** npm (as indicated by `package.json` scripts, though `pnpm`, `yarn`, `bun` are also mentioned in `README.md` for general commands)
+*   **Package Manager:** bun (exclusive - must use bun for all operations)
 
 ## 2. Build, Lint, and Test Commands
 
-Agents should primarily use `npm` for running scripts.
+Agents must use `bun` for running scripts.
 
 ### 2.1. Installation
 
 To install dependencies:
 
 ```bash
-npm install
+bun install
 ```
 
 ### 2.2. Development Server
@@ -25,7 +25,7 @@ npm install
 To start the development server:
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 ### 2.3. Building and Previewing
@@ -33,19 +33,19 @@ npm run dev
 To build the application for production:
 
 ```bash
-npm run build
+bun run build
 ```
 
 To locally preview the production build:
 
 ```bash
-npm run preview
+bun run preview
 ```
 
 To generate static sites (if applicable for Nuxt):
 
 ```bash
-npm run generate
+bun run generate
 ```
 
 ### 2.4. Testing
@@ -54,42 +54,38 @@ This project uses `vitest` for testing.
 
 *   **Run all tests:**
     ```bash
-    npm test
+    bun test
     ```
 
 *   **Run tests in watch mode:**
     ```bash
-    npm run test:watch
+    bun run test:watch
     ```
 
 *   **Run tests with coverage:**
     ```bash
-    npm run test:coverage
+    bun run test:coverage
     ```
 
 *   **Run unit tests (specific project configuration):**
     ```bash
-    npm run test:unit
+    bun run test:unit
     ```
 
 *   **Run Nuxt-specific tests (specific project configuration):**
     ```bash
-    npm run test:nuxt
+    bun run test:nuxt
     ```
 
 *   **Running a single test file:**
-    To run a specific test file, agents can pass the file path to `vitest`. For example:
+    To run a specific test file, pass the file path to `vitest`:
     ```bash
-    vitest path/to/your/test.spec.ts
-    ```
-    Or, using npm script:
-    ```bash
-    npm test -- path/to/your/test.spec.ts
+    bun vitest path/to/your/test.spec.ts
     ```
 
 ### 2.5. Linting
 
-The project uses `@nuxt/eslint` for linting. Agents should ensure code adheres to the configured ESLint rules. Linting is typically integrated into the build/development process. If an explicit lint script is required, check `package.json` or run `npx eslint .` for ad-hoc checks.
+The project uses `@nuxt/eslint` for linting. Agents should ensure code adheres to the configured ESLint rules. Linting is typically integrated into the build/development process. If an explicit lint script is required, check `package.json` or run `bunx eslint .` for ad-hoc checks.
 
 ## 3. Code Style Guidelines
 
