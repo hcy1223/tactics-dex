@@ -20,7 +20,7 @@ export default defineNuxtConfig({
         indent: 2, // 2空格缩进
         commaDangle: 'always-multiline',
         braceStyle: '1tbs',
-        arrowParens: 'avoid',
+        arrowParens: true,
       },
     },
   },
