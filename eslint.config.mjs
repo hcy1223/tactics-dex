@@ -8,6 +8,9 @@ export default withNuxt(
       'no-debugger': 'error',
     },
   },
+  {
+    ignores: ['handle.js', 'handle_unit.js']
+  },
   // 覆盖 layouts 和 pages 目录的规则（Nuxt 约定允许单名单词）
   {
     files: ['layouts/**/*.vue', 'pages/**/*.vue'],

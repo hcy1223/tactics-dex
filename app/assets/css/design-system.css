@@ -66,3 +66,11 @@
     --color-info-subtle: #451a03;
   }
 }
+
+/* ===== 基础元素样式 ===== */
+html, body {
+  background: var(--bg-base);
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}

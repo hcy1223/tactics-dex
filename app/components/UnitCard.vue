@@ -42,7 +42,7 @@ interface Props {
 const props = defineProps<Props>()
 
 const normalizedTraits = computed(() => {
-  return props.unit.traits.flat()
+  return props.unit.traits.map((it) => it.cnName).flat()
 })
 </script>
 
