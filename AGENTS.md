@@ -4,6 +4,13 @@ This document outlines the guidelines and commands for agentic coding agents ope
 
 ## 1. Project Overview
 
+*   **Application Type:** Teamfight Tactics (TFT) Dex - a compendium application to display game data.
+*   **Key Features:**
+    *   Units Dex (英雄图鉴)
+    *   Traits Dex (羁绊图鉴)
+    *   Items Dex (装备图鉴)
+    *   Augments Dex (强化符文)
+*   **Data Handling:** No backend data requests; all data will be static or client-side managed.
 *   **Framework:** Nuxt.js (Vue 3, Vite, TypeScript)
 *   **Language:** JavaScript, TypeScript, Vue.js Single File Components (SFCs)
 *   **Package Manager:** bun (exclusive - must use bun for all operations)
