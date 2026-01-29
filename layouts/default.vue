@@ -1,9 +1,20 @@
 <template>
+  <div>
+    <AppHeader />
+    <main class="main">
+      <slot />
+    </main>
+  </div>
 </template>
 
 <script setup lang="ts">
 </script>
 
 <style scoped>
-/* Add any specific styles for the layout here if needed */
+.main {
+  margin-top: 60px;
+  padding: 24px;
+  background: var(--bg-base);
+  min-height: 100vh;
+}
 </style>

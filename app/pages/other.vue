@@ -9,10 +9,10 @@
 const title = computed(() => {
   const titles: Record<string, string> = {
     units: '英雄图鉴',
-    traits: '羁绊图鉴', 
+    traits: '羁绊图鉴',
     items: '装备图鉴',
     augments: '强化符文',
-    other: '其他'
+    other: '其他',
   }
   const route = useRoute()
   return titles[route.name as string] || ''

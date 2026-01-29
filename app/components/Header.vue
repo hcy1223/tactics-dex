@@ -1,6 +1,8 @@
 <template>
   <header class="header">
-    <div class="logo">TFT Dex</div>
+    <div class="logo">
+      TFT Dex
+    </div>
 
     <nav class="tabs">
       <NuxtLink
@@ -19,6 +21,9 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  name: 'AppHeader',
+})
 interface Tab {
   path: string
   label: string
