@@ -21,9 +21,6 @@
 </template>
 
 <script setup lang="ts">
-defineOptions({
-  name: 'AppHeader',
-})
 interface Tab {
   path: string
   label: string
