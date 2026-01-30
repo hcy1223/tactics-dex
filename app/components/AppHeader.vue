@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="logo">
-      TFT Dex
+      Tactics Dex
     </div>
 
     <nav class="tabs">
