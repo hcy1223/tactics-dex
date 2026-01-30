@@ -10,6 +10,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   css: ['~/assets/css/design-system.css'],
+
+  routeRules: {
+    '/': { redirect: '/units' },
+  },
   compatibilityDate: '2025-07-15',
 
   eslint: {
