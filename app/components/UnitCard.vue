@@ -48,8 +48,12 @@
         </span>
       </div>
       <div class="unit-skill">
-        <div class="skill-name">{{ unit.skill.name }}</div>
-        <div class="skill-desc">{{ unit.skill.description }}</div>
+        <div class="skill-name">
+          {{ unit.skill.name }}
+        </div>
+        <div class="skill-desc">
+          {{ unit.skill.description }}
+        </div>
       </div>
     </div>
   </div>
