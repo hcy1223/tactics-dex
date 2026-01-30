@@ -31,7 +31,6 @@ const tabs: Tab[] = [
   { path: '/traits', label: '羁绊' },
   { path: '/items', label: '装备' },
   { path: '/augments', label: '强化符文' },
-  { path: '/other', label: '其他' },
 ]
 
 const route = useRoute()
@@ -84,5 +83,24 @@ const isActive = (path: string): boolean => route.path === path
 
 .right-spacer {
   flex: 1;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0 12px;
+  }
+
+  .logo {
+    font-size: 16px;
+    margin-right: 16px;
+  }
+
+  .tabs {
+    gap: 12px;
+  }
+
+  .tab {
+    font-size: 12px;
+  }
 }
 </style>
