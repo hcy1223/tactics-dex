@@ -74,3 +74,17 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+.page-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .page-container {
+    padding: 24px 16px 48px;
+  }
+}

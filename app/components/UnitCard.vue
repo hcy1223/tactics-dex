@@ -97,6 +97,7 @@ const normalizedTraits = computed(() => {
 .unit-card[data-cost="3"]::before { background-color: #3b82f6; }
 .unit-card[data-cost="4"]::before { background-color: #a855f7; }
 .unit-card[data-cost="5"]::before { background-color: #f59e0b; }
+.unit-card[data-cost="7"]::before { background-color: #f59e0b; }
 
 .unit-card:hover {
   transform: translateY(-4px);

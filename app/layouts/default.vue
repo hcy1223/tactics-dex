@@ -2,7 +2,9 @@
   <div>
     <AppHeader />
     <main class="main">
-      <slot />
+      <div class="page-container">
+        <slot />
+      </div>
     </main>
   </div>
 </template>
@@ -13,7 +15,6 @@
 <style scoped>
 .main {
   margin-top: 60px;
-  padding: 24px;
   background: var(--bg-base);
   min-height: 100vh;
 }

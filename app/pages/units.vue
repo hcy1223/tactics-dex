@@ -1,12 +1,5 @@
 <template>
   <div class="units-page">
-    <h1 class="page-title">
-      英雄图鉴
-    </h1>
-    <p class="page-subtitle">
-      {{ totalUnits }} 位英雄
-    </p>
-
     <div class="units-grid">
       <UnitCard
         v-for="unit in units"
@@ -43,8 +36,7 @@ useHead({
   title: '英雄图鉴 - TFT Dex',
 })
 
-const { units, loadMore, hasMore, total } = useUnits()
-const totalUnits = computed(() => total)
+const { units, loadMore, hasMore } = useUnits()
 
 // 无限滚动 - 使用 IntersectionObserver
 const loadTrigger = ref<HTMLElement | null>(null)
@@ -81,9 +73,6 @@ onMounted(() => {
 
 <style scoped>
 .units-page {
-  max-width: 840px;
-  margin: 0 auto;
-  padding: 32px 24px;
 }
 
 .page-title {
