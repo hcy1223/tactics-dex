@@ -47,6 +47,10 @@
           {{ trait }}
         </span>
       </div>
+      <div class="unit-skill">
+        <div class="skill-name">{{ unit.skill.name }}</div>
+        <div class="skill-desc">{{ unit.skill.description }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -77,6 +81,7 @@ const normalizedTraits = computed(() => {
   flex-direction: column;
   border: 1px solid var(--border-subtle);
   position: relative;
+  height: 100%;
 }
 
 /* Rarity Strip at the top */
@@ -170,7 +175,7 @@ const normalizedTraits = computed(() => {
 
 .unit-cost {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   font-family: "Barlow Condensed", sans-serif;
   background: rgba(0,0,0,0.03); /* Subtle pill background */
   padding: 2px 8px;
@@ -187,7 +192,7 @@ const normalizedTraits = computed(() => {
   height: 14px;
   margin-right: 4px;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 }
 
@@ -196,7 +201,7 @@ const normalizedTraits = computed(() => {
   font-weight: 700;
   line-height: 1;
   position: relative;
-  top: 1px; /* Optical alignment */
+  top: 0;
 }
 
 /* Cost text colors */
@@ -209,7 +214,7 @@ const normalizedTraits = computed(() => {
 .coin-svg {
   width: 100%;
   height: 100%;
-  fill: currentColor;
+  fill: #fbbf24;
 }
 
 .unit-info {
@@ -224,6 +229,25 @@ const normalizedTraits = computed(() => {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+}
+
+.unit-skill {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skill-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-neutral-700);
+}
+
+.skill-desc {
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--color-neutral-600);
 }
 
 .trait-tag {
@@ -310,7 +334,7 @@ const normalizedTraits = computed(() => {
 
 .unit-cost {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   font-size: 16px;
   font-weight: 700;
   font-family: "Barlow Condensed", sans-serif;
@@ -321,13 +345,14 @@ const normalizedTraits = computed(() => {
   height: 16px;
   margin-right: 4px;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 }
 
 .coin-svg {
   width: 100%;
   height: 100%;
+  fill: #fbbf24;
 }
 
 .unit-image-wrapper {
@@ -371,7 +396,7 @@ const normalizedTraits = computed(() => {
 .coin-svg {
   width: 100%;
   height: 100%;
-  fill: currentColor;
+  fill: #fbbf24;
 }
 
 .unit-info {
@@ -379,7 +404,7 @@ const normalizedTraits = computed(() => {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .unit-traits {
@@ -389,12 +414,15 @@ const normalizedTraits = computed(() => {
 }
 
 .trait-tag {
-  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  font-size: 11px;
   color: var(--color-neutral-600);
   background: var(--color-neutral-100);
   padding: 4px 8px;
   border-radius: 6px;
   white-space: nowrap;
-  font-weight: 500;
+  font-weight: 600;
 }
 </style>
