@@ -219,12 +219,32 @@ async function convertUnits() {
   // 确保图片目录存在
   ensureDirectoryExists(IMAGES_DIR);
 
+  // 合并同英雄不同形态（优先 showHeroTag=1，其次保留第一条）
+  const uniqueUnitMap = new Map();
+  Object.values(allUnits).forEach((item) => {
+    const key = item.heroPaint && item.heroPaint !== '' ? item.heroPaint : item.name;
+    const existing = uniqueUnitMap.get(key);
+    if (!existing) {
+      uniqueUnitMap.set(key, item);
+      return;
+    }
+
+    const existingShow = existing.showHeroTag === '1';
+    const currentShow = item.showHeroTag === '1';
+    if (!existingShow && currentShow) {
+      uniqueUnitMap.set(key, item);
+    }
+  });
+
+  const uniqueUnits = Array.from(uniqueUnitMap.values());
+  console.log(`📊 合并后保留 ${uniqueUnits.length} 个单位\n`);
+
   // 转换所有单位
   const convertedUnits = [];
   let skipped = 0;
   let downloadFailed = 0;
 
-  const unitPromises = Object.values(allUnits).map(async (item) => {
+  const unitPromises = uniqueUnits.map(async (item) => {
     try {
       // 跳过无效单位
       if (parseInt(item.price, 10) === 0 && item.name.includes('假人')) {
