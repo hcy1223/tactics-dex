@@ -1,5 +1,7 @@
 import type { Unit, UseUnitsReturn } from '~/types/unit'
-import unitsData from '~/data/units.json'
+import _unitsData from '~/data/units.json'
+
+const unitsData: Unit[] = _unitsData as Unit[] // Explicitly cast to Unit[]
 
 const BATCH_SIZE = 12
 
