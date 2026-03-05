@@ -2,6 +2,11 @@
   <div
     class="unit-card"
     :data-cost="unit.cost"
+    role="button"
+    tabindex="0"
+    @click="handleCardClick"
+    @keydown.enter="handleCardClick"
+    @keydown.space.prevent="handleCardClick"
   >
     <div class="card-header">
       <div class="header-content">
@@ -67,10 +72,16 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+const router = useRouter()
 
 const normalizedTraits = computed(() => {
   return props.unit.traits.map((it) => it.cnName).flat()
 })
+
+// 点击卡片跳转到详情页
+const handleCardClick = () => {
+  router.push(`/units/${props.unit.id}`)
+}
 </script>
 
 <style scoped>
