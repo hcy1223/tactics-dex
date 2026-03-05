@@ -2,11 +2,19 @@
   <div class="unit-detail-page">
     <div class="detail-card">
       <template v-if="unit">
-        <div class="card-header" :data-cost="unit.cost">
+        <div
+          class="card-header"
+          :data-cost="unit.cost"
+        >
           <div class="header-content">
             <div class="title-group">
-              <h1 class="unit-name">{{ unit.name }}</h1>
-              <div class="unit-cost" :class="`text-cost-${unit.cost}`">
+              <h1 class="unit-name">
+                {{ unit.name }}
+              </h1>
+              <div
+                class="unit-cost"
+                :class="`text-cost-${unit.cost}`"
+              >
                 <span class="cost-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -20,9 +28,14 @@
                 <span class="cost-value">{{ unit.cost }}</span>
               </div>
             </div>
-            <div class="unit-id">ID: {{ unit.id }}</div>
+            <div class="unit-id">
+              ID: {{ unit.id }}
+            </div>
           </div>
-          <div class="rarity-strip" :data-cost="unit.cost" />
+          <div
+            class="rarity-strip"
+            :data-cost="unit.cost"
+          />
         </div>
 
         <div class="card-body">
@@ -37,7 +50,9 @@
 
           <div class="info-panel">
             <div class="section">
-              <div class="section-title">羁绊</div>
+              <div class="section-title">
+                羁绊
+              </div>
               <div class="traits">
                 <span
                   v-for="(trait, index) in normalizedTraits"
@@ -50,17 +65,30 @@
             </div>
 
             <div class="section">
-              <div class="section-title">技能</div>
-              <div class="skill-name">{{ unit.skill.name }}</div>
-              <div class="skill-desc">{{ unit.skill.description }}</div>
+              <div class="section-title">
+                技能
+              </div>
+              <div class="skill-name">
+                {{ unit.skill.name }}
+              </div>
+              <div class="skill-desc">
+                {{ unit.skill.description }}
+              </div>
             </div>
           </div>
         </div>
       </template>
 
-      <div v-else class="empty-state">
-        <div class="empty-title">未找到该英雄</div>
-        <div class="empty-desc">请检查链接是否正确</div>
+      <div
+        v-else
+        class="empty-state"
+      >
+        <div class="empty-title">
+          未找到该英雄
+        </div>
+        <div class="empty-desc">
+          请检查链接是否正确
+        </div>
       </div>
     </div>
   </div>
