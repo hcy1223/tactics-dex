@@ -28,7 +28,6 @@
           <span class="cost-value">{{ unit.cost }}</span>
         </div>
       </div>
-      <!-- Rarity Strip moved inside header or handled via border -->
     </div>
 
     <div class="unit-image-wrapper">
@@ -78,7 +77,6 @@ const normalizedTraits = computed(() => {
   return props.unit.traits.map((it) => it.cnName).flat()
 })
 
-// 点击卡片跳转到详情页
 const handleCardClick = () => {
   router.push(`/units/${props.unit.id}`)
 }
@@ -87,7 +85,7 @@ const handleCardClick = () => {
 <style scoped>
 .unit-card {
   background: var(--bg-elevated);
-  border-radius: 12px; /* Slightly sharper radius for game UI feel */
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -99,7 +97,6 @@ const handleCardClick = () => {
   height: 100%;
 }
 
-/* Rarity Strip at the top */
 .unit-card::before {
   content: '';
   position: absolute;
@@ -111,7 +108,6 @@ const handleCardClick = () => {
   transition: background-color 0.3s ease;
 }
 
-/* Rarity colors for the top strip */
 .unit-card[data-cost="1"]::before { background-color: #9ca3af; }
 .unit-card[data-cost="2"]::before { background-color: #22c55e; }
 .unit-card[data-cost="3"]::before { background-color: #3b82f6; }
@@ -123,7 +119,6 @@ const handleCardClick = () => {
   transform: translateY(-4px);
 }
 
-/* Dynamic Hover Shadows based on rarity */
 .unit-card[data-cost="1"]:hover { box-shadow: 0 12px 24px -8px rgba(156, 163, 175, 0.25); border-color: #9ca3af; }
 .unit-card[data-cost="2"]:hover { box-shadow: 0 12px 24px -8px rgba(34, 197, 94, 0.25); border-color: #22c55e; }
 .unit-card[data-cost="3"]:hover { box-shadow: 0 12px 24px -8px rgba(59, 130, 246, 0.25); border-color: #3b82f6; }
@@ -135,7 +130,7 @@ const handleCardClick = () => {
   position: relative;
   overflow: hidden;
   aspect-ratio: 16/9;
-  background: var(--bg-surface); /* Fallback */
+  background: var(--bg-surface);
 }
 
 .image-container {
@@ -155,16 +150,8 @@ const handleCardClick = () => {
   transform: scale(1.08);
 }
 
-.unit-header-overlay {
-  display: none;
-}
-
-.image-overlay {
-  display: none;
-}
-
 .card-header {
-  padding: 12px 16px 10px; /* Slight extra top padding for visual balance with the strip */
+  padding: 12px 16px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -193,12 +180,11 @@ const handleCardClick = () => {
   display: flex;
   align-items: stretch;
   font-family: "Barlow Condensed", sans-serif;
-  background: rgba(0,0,0,0.03); /* Subtle pill background */
+  background: rgba(0,0,0,0.03);
   padding: 2px 8px;
   border-radius: 12px;
 }
 
-/* Dark mode adjustment if variable exists, otherwise this is safe */
 @media (prefers-color-scheme: dark) {
   .unit-cost { background: rgba(255,255,255,0.05); }
 }
@@ -220,8 +206,7 @@ const handleCardClick = () => {
   top: 0;
 }
 
-/* Cost text colors */
-.text-cost-1 { color: #6b7280; } /* Darker grey for better contrast on light bg */
+.text-cost-1 { color: #6b7280; }
 .text-cost-2 { color: #16a34a; }
 .text-cost-3 { color: #2563eb; }
 .text-cost-4 { color: #9333ea; }
@@ -238,13 +223,30 @@ const handleCardClick = () => {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Changed from center to allow expansion */
+  justify-content: flex-start;
 }
 
 .unit-traits {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+}
+
+.trait-tag {
+  font-size: 11px;
+  color: var(--color-neutral-600);
+  background: var(--color-neutral-100);
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.trait-tag:hover {
+  border-color: var(--border-subtle);
+  background: var(--bg-surface);
 }
 
 .unit-skill {
@@ -264,181 +266,5 @@ const handleCardClick = () => {
   font-size: 10px;
   line-height: 1.5;
   color: var(--color-neutral-600);
-}
-
-.trait-tag {
-  font-size: 11px;
-  color: var(--color-neutral-600);
-  background: var(--color-neutral-100);
-  padding: 4px 8px;
-  border-radius: 4px;
-  white-space: nowrap;
-  font-weight: 600;
-  border: 1px solid transparent;
-  transition: all 0.2s;
-}
-
-.unit-card:hover .trait-tag {
-  border-color: var(--border-subtle);
-  background: var(--bg-surface);
-}
-
-.unit-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-}
-
-.unit-image-wrapper {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 16/9;
-}
-
-.image-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 40%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.unit-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.unit-card:hover .unit-image {
-  transform: scale(1.05);
-}
-
-.unit-header-overlay {
-  display: none;
-}
-
-.image-overlay {
-  display: none;
-}
-
-.card-header {
-  padding: 10px 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--bg-elevated);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.unit-name {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--color-neutral-900);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.unit-cost {
-  display: flex;
-  align-items: stretch;
-  font-size: 16px;
-  font-weight: 700;
-  font-family: "Barlow Condensed", sans-serif;
-}
-
-.cost-icon {
-  width: 16px;
-  height: 16px;
-  margin-right: 4px;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-}
-
-.coin-svg {
-  width: 100%;
-  height: 100%;
-  fill: #fbbf24;
-}
-
-.unit-image-wrapper {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 16/9;
-}
-
-.header-name {
-  font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  letter-spacing: 0.5px;
-}
-
-.header-cost {
-  font-size: 20px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-  font-family: "Barlow Condensed", sans-serif; /* Optional: if font is available, otherwise default sans is fine */
-}
-
-.cost-symbol {
-  font-size: 14px;
-  margin-right: 1px;
-  opacity: 0.9;
-  font-weight: 600;
-  margin-top: 2px;
-}
-
-/* Cost text colors */
-.text-cost-1 { color: #9ca3af; }
-.text-cost-2 { color: #22c55e; }
-.text-cost-3 { color: #3b82f6; }
-.text-cost-4 { color: #a855f7; }
-.text-cost-5 { color: #f59e0b; }
-
-.coin-svg {
-  width: 100%;
-  height: 100%;
-  fill: #fbbf24;
-}
-
-.unit-info {
-  padding: 12px 14px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.unit-traits {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.trait-tag {
-  display: inline-flex;
-  align-items: center;
-  min-height: 22px;
-  font-size: 11px;
-  color: var(--color-neutral-600);
-  background: var(--color-neutral-100);
-  padding: 4px 8px;
-  border-radius: 6px;
-  white-space: nowrap;
-  font-weight: 600;
 }
 </style>
