@@ -133,19 +133,11 @@ useHead({
 <style scoped>
 .unit-detail-page {
   min-height: 100vh;
-  background: #fff;
+  background: var(--bg-base);
   padding: 32px 24px 56px;
   display: flex;
   justify-content: center;
   position: relative;
-}
-
-.unit-detail-page::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--bg-base);
-  z-index: -1;
 }
 
 .detail-card {

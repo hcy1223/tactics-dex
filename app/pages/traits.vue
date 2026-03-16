@@ -219,7 +219,7 @@ const toggleTrait = (id: number) => {
 }
 
 .traits-table-wrap {
-  background: var(--color-neutral-0);
+  background: var(--bg-elevated);
   border-radius: 16px;
   border: 1px solid var(--color-neutral-200);
   overflow: hidden;
@@ -253,7 +253,7 @@ const toggleTrait = (id: number) => {
   padding: 14px 16px;
   font-weight: 600;
   color: var(--color-neutral-700);
-  background: var(--color-neutral-50);
+  background: var(--bg-sunken);
   border-bottom: 1px solid var(--color-neutral-200);
   vertical-align: middle;
 }
@@ -262,14 +262,15 @@ const toggleTrait = (id: number) => {
   padding: 12px 16px;
   border-bottom: 1px solid var(--color-neutral-100);
   vertical-align: top;
+  color: var(--color-neutral-700);
 }
 
 .trait-row:hover td {
-  background: var(--color-neutral-50);
+  background: var(--bg-sunken);
 }
 
 .trait-row.expanded td {
-  background: var(--color-neutral-0);
+  background: var(--bg-elevated);
 }
 
 .expand-button {
@@ -353,7 +354,7 @@ const toggleTrait = (id: number) => {
 
 .levels-row td {
   padding: 0 16px 16px 48px;
-  background: var(--color-neutral-0);
+  background: var(--bg-elevated);
 }
 
 .levels-wrap {
@@ -390,7 +391,7 @@ const toggleTrait = (id: number) => {
 }
 
 .trait-card {
-  background: var(--color-neutral-0);
+  background: var(--bg-elevated);
   border: 1px solid var(--color-neutral-200);
   border-radius: 14px;
   padding: 16px;
