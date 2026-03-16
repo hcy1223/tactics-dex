@@ -101,6 +101,9 @@ import _unitsData from '~/data/units.json'
 const unitsData: Unit[] = _unitsData as Unit[]
 const route = useRoute()
 
+const clickedUnitId = useState('clicked-unit-id', () => null)
+const animateScale = ref(false)
+
 const unitId = computed(() => {
   const value = Array.isArray(route.params.id) ? route.params.id[0] : route.params.id
   return Number(value)
@@ -111,6 +114,20 @@ const unit = computed(() => unitsData.find((item) => item.id === unitId.value))
 const normalizedTraits = computed(() => {
   return unit.value?.traits.map((it) => it.cnName).flat() ?? []
 })
+
+onMounted(() => {
+  if (clickedUnitId.value === unitId.value) {
+    animateScale.value = true
+    setTimeout(() => {
+      clickedUnitId.value = null
+    }, 500)
+  }
+})
+
+// 页面元数据
+useHead({
+  title: unit.value ? `${unit.value.name} - 英雄详情 - TFT Dex` : '英雄详情 - TFT Dex',
+})
 </script>
 
 <style scoped>
@@ -120,6 +137,15 @@ const normalizedTraits = computed(() => {
   padding: 32px 24px 56px;
   display: flex;
   justify-content: center;
+  position: relative;
+}
+
+.unit-detail-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bg-base);
+  z-index: -1;
 }
 
 .detail-card {
@@ -129,6 +155,18 @@ const normalizedTraits = computed(() => {
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   overflow: hidden;
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .card-header {

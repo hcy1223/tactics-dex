@@ -73,11 +73,15 @@ interface Props {
 const props = defineProps<Props>()
 const router = useRouter()
 
+// 存储当前点击的单位ID，以触发动画过渡
+const clickedUnitId = useState('clicked-unit-id', () => null)
+
 const normalizedTraits = computed(() => {
   return props.unit.traits.map((it) => it.cnName).flat()
 })
 
 const handleCardClick = () => {
+  clickedUnitId.value = props.unit.id
   router.push(`/units/${props.unit.id}`)
 }
 </script>
